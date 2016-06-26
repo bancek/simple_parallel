@@ -77,7 +77,10 @@ fn pool_unordered() {
         // see if there are any elements where the order they come out of
         // the original iterator is different to the order in which they
         // are yielded here.
-        assert!(!eq(iter.map(|t| t.0), 0..N));
+        // sometimes the result is in the same order
+        // assert!(!eq(iter.map(|t| t.0), 0..N));
+
+        assert_eq!(iter.count(), N);
     });
 }
 
